@@ -20,11 +20,21 @@ public class GradeCalculator extends Application {
                 TextField[] f = view.getF();
                 TextField[] w = view.getW();
                 double total =0;
+                double x = 0;
+                boolean error = false;
                 for(int i = 0; i<f.length; i++) {
-                    double x = ((Double.parseDouble(f[i].getText())) / 100) * Double.parseDouble(w[i].getText());
+                    try {
+                         x = ((Double.parseDouble(f[i].getText())) / 100) * Double.parseDouble(w[i].getText());
+                    } catch (Exception e){
+                        error = true;
+                    }
                     total += x;
                 }
-                view.getFinalGrade().setText(""+total);
+                if(error == false) {
+                    view.getFinalGrade().setText("" + total);
+                } else{
+                    view.getFinalGrade().setText("Error!");
+                }
             }
         });
 
