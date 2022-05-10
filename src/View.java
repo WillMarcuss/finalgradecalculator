@@ -11,6 +11,7 @@ public class View extends Pane {
     private Button calculate;
     private TextField finalGrade;
     private Label finalGradeText;
+    private Button clear;
 
 
     public View(){
@@ -32,7 +33,11 @@ public class View extends Pane {
         finalGrade.setPrefSize(100,15);
         finalGrade.relocate(90,150);
 
-        getChildren().addAll(gradePCT,weight,calculate, finalGrade,finalGradeText);
+        clear = new Button("Clear Fields");
+        clear.setPrefSize(100,100);
+        clear.relocate(90,10);
+
+        getChildren().addAll(gradePCT,weight,calculate, finalGrade,finalGradeText,clear);
 
 
 
@@ -64,4 +69,9 @@ public class View extends Pane {
     public TextField getFinalGrade(){
         return finalGrade;
     }
+    public Button getClear(){
+        return clear;
+    }
+
+
 }

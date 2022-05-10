@@ -38,6 +38,19 @@ public class GradeCalculator extends Application {
             }
         });
 
+        view.getClear().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                TextField[] f = view.getF();
+                TextField[] w = view.getW();
+                for(int i = 0; i<f.length; i++) {
+                    w[i].setText("0");
+                    f[i].setText("0");
+                    view.getFinalGrade().setText("0");
+                }
+            }
+        });
+
 
 
         primaryStage.setTitle("Final Grade Calculator");
